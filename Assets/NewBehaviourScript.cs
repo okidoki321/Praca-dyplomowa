@@ -11,6 +11,7 @@ public class Movement : MonoBehaviour
     public float runSpeed = 2500;
 
     public bool isGrounded = false;
+    Float moveHorizontal;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,8 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        IsleLeftShift = Input.GetKey(keycode.LeftShift);
+        moveHorizontal = Input.GetAxis("horizontal");
         if (Input.GetKey(KeyCode.LeftShift))
         {
             rb.velocity = new Vector3(Input.GetAxis("Horizontal") * runSpeed * Time.deltaTime, rb.velocity.y,0);
